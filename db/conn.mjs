@@ -2,6 +2,7 @@ import { MongoClient, MongoParseError } from "mongodb";
 import dotenv from 'dotenv';
 import mongoose from "mongoose"; //TODO: Remove this
 
+const databaseName = "telemaco";
 dotenv.config();
 
 // Load connectionString
@@ -31,6 +32,6 @@ try {
 }
 
 // choose database & export
-let db = conn.db('pizza');
+let db = conn.db(databaseName);
 
 export default db;
