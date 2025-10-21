@@ -1,5 +1,7 @@
 import db from "./db/conn.mjs";
 
+
+
 export default async function initDatabase() {
     let testCol = await db.collection("test2");
     try {
