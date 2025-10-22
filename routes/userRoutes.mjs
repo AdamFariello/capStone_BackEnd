@@ -2,8 +2,6 @@ import express from "express";
 import error from "../middleware/errors.mjs"
 import db from "../db/conn.mjs";
 
-import usersSchema from "../db/models/usersSchema.mjs";
-
 const router = express.Router();
 let userColl = db.collection("user");
 
@@ -11,7 +9,7 @@ router.route("/")
       .get(async(req, res) => {
         let getUsers;
         if (req.query.user) {
-          getUsers = await userColl.find({"username": req.query.user}).toArray();
+          getUsers = await userColl.find({"username": req.queryjser}).toArray();
         } else {
           getUsers = await userColl.find({}).toArray();
         }
@@ -19,6 +17,8 @@ router.route("/")
       })
       .post(async(req, res, next) => {
         try {
+          console.log(typeof req.body);
+          console.log(req.body);
           await userColl.insertOne(req.body);
           res.json(req.body);
         } catch (e) {

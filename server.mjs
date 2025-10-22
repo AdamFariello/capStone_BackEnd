@@ -1,5 +1,11 @@
 import express from "express"; 
 import dotenv from "dotenv";
+import cors from "cors";
+
+//TODO: unsure  
+import http from "http";
+import https from "https";
+
 
 import error from "./middleware/errors.mjs";
 import initDatabase from "./initDatabase.mjs"; //TODO: make temp
@@ -8,8 +14,10 @@ import userRoutes from "./routes/userRoutes.mjs";
 
 // Server setup
 const app = express();
+
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+app.use(cors());
 initDatabase();
 
 dotenv.config();
