@@ -17,8 +17,6 @@ router.route("/")
       })
       .post(async(req, res, next) => {
         try {
-          console.log(typeof req.body);
-          console.log(req.body);
           await userColl.insertOne(req.body);
           res.json(req.body);
         } catch (e) {
@@ -33,8 +31,9 @@ router.route("/")
             email: String(req.body.email),
             password: String(req.body.password)
           }
-                    
           let result = await userColl.deleteOne(query);
+
+          //let result = await userColl.deleteOne(req.body);
 
           if (result["deletedCount"]) {
             res.json(result);

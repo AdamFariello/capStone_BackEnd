@@ -18,20 +18,16 @@ async function testInsert() {
 
 export default async function initDatabase() {
     //testInsert();
+    
     console.log("[DEBUG] -- initalizing database with initDatabase");
     try {
-        //await db.collection("test2").drop();
-        //let userColl = await db.collection("user", userValidator);
-        
+        //Wipe user collection for new collection
         await db.collection("user").drop();
         await db.createCollection("user", userValidator);
         
         let userColl = await db.collection("user", userValidator);
-        //await db.createCollection("user");
-        //await userColl.createCollection(); 
         userColl.insertMany(userData);
         //userColl.deleteMany({});
-        //await db.collection("user").insertMany(userData);
     } catch (e) {
         console.error(e);
     }

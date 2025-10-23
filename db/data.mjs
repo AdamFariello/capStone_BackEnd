@@ -18,7 +18,9 @@ export const userData = [
     {username:"gszapirog",password:"lO5*qf$>OvIq/jP", email:"temp@gmail.com"},
     {username:"aaitonh",password:"cD6{$LJ#vHg@", email:"temp@gmail.com"},
     {username:"feouzani",password:"xA5|2~>_KLRJe", email:"temp@gmail.com"},
-    {username:"abridywaterj",password:"gZ9/~'F4zKO/", email:"temp@gmail.com"}
+    {username:"abridywaterj",password:"gZ9/~'F4zKO/", email:"temp@gmail.com"},
+
+    { username: 'test', email: 'test@gmail.com', password: 'a' }
 ]
 
 //module.export({userData});
