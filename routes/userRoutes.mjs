@@ -25,16 +25,15 @@ router.route("/")
         }
       })
       .delete(async(req, res, next) => {
-        if (req.body.username && req.body.email && req.body.password) {
+        try {
           let result = await userColl.deleteMany(req.body);
-
           if (result["deletedCount"]) {
             res.json(result);
           } else {
             next(error(400, "Error occured, user wasn't deleted or doesn't exist"));
           }
-        } else {
-          next(next(400, "ERROR: missing username, password, and/or email"));
+        } catch (e) {
+          next(error(400, `[ERROR] -- ${e.message}`));
         }
       })
       .patch(async(req, res, next) => {
