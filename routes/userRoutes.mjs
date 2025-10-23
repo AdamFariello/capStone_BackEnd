@@ -4,6 +4,7 @@ import db from "../db/conn.mjs";
 
 const router = express.Router();
 let userColl = db.collection("user");
+ 
 
 router.route("/")
       .get(async(req, res) => {

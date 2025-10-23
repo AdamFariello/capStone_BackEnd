@@ -6,6 +6,7 @@ import error from "./middleware/errors.mjs";
 import initDatabase from "./initDatabase.mjs"; //TODO: make temp
 
 import userRoutes from "./routes/userRoutes.mjs";
+import authRoutes from "./routes/authRoutes.mjs"
 
 // Server setup
 const app = express();
@@ -24,6 +25,7 @@ app.get("/", (req, res, next) => {
     res.json({"TEST": "Successful"});
 })
 app.use("/users", userRoutes);
+app.use("/api/auth/", authRoutes);
 
 
 
