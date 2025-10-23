@@ -54,6 +54,8 @@ router.route("/")
             let updateObject = req.body.updateObject // { $set: { password: req.body.newPassword } };
             let {"updateObject":_,  query} = req.body; 
 
+            console.log(query);
+
             let result = await userColl.updateOne(query, updateObject)  
             res.json(result);
           } else {
