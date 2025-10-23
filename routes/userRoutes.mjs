@@ -10,7 +10,7 @@ router.route("/")
       .get(async(req, res) => {
         let getUsers;
         if (req.query.user) {
-          getUsers = await userColl.find({"username": req.queryjser}).toArray();
+          getUsers = await userColl.find({"username": req.query.user}).toArray();
         } else {
           getUsers = await userColl.find({}).toArray();
         }

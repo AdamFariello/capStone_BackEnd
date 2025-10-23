@@ -6,11 +6,15 @@ const router = express.Router();
 let userColl = db.collection("user");
 
 router.route("/")
-      .get(async(req, res, next) => {
+      .post(async(req, res, next) => {
           try {
             const {username, password} = req.body;
-            console.log(username, password);
-            //let getUsers = userColl.findOne({"username": username})
+            const getUsers = await userColl.findOne({"username": username})
+            if (password == getUsers.password) {
+                res.json({"200": "valid"});
+            } else {
+                next(error(403, `[ERROR] -- Passwords don't match!`));
+            }
           } catch (e) {
             console.log(e);
             next(error(400, `[ERROR] -- ${e.message}`));
