@@ -38,23 +38,30 @@ router.route("/")
         }
       })
       .patch(async(req, res, next) => {
-        if (req.body.username && req.body.email && req.body.password) {
+        /*
+          if (req.body.username && req.body.email && req.body.password) {
+          } else { 
+            //res.json("ERROR: missing username, old password, and/or new password");
+            next(error(400, "ERROR: missing username, old password, and/or new password")); 
+          }
+        */
+
+        try {
+          console.log(req.body);
+          
           //Update Password
           if (req.body.newPassword) {
-            let query = {
-              username: String(req.body.username),
-              password: String(req.body.password)
-            }
+            let updateObject = req.body.updateObject // { $set: { password: req.body.newPassword } };
+            let {"updateObject":_,  query} = req.body; 
 
-            let updateObject = { $set: { password: req.body.newPassword } };
             let result = await userColl.updateOne(query, updateObject)  
             res.json(result);
           } else {
             next(error(403, "ERROR: YOUR NEW PASSWORD CAN'T BE THE SAME AS THE OLD ONE"));  
           }  
-        } else { 
-          //res.json("ERROR: missing username, old password, and/or new password");
-          next(error(400, "ERROR: missing username, old password, and/or new password")); 
+        } catch (err) {
+          console.log(err);
+          next(error(400, `[ERROR] -- ${e.message}`));
         }
       })
 ;

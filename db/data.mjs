@@ -20,7 +20,7 @@ export const userData = [
     {username:"feouzani",password:"xA5|2~>_KLRJe", email:"temp@gmail.com"},
     {username:"abridywaterj",password:"gZ9/~'F4zKO/", email:"temp@gmail.com"},
 
-    { username: 'test', email: 'test@gmail.com', password: 'a' }
+    { username: 'test', email: 'test@gmail.com', password: 'a' },
 ]
 
 //module.export({userData});

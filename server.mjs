@@ -2,11 +2,6 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 
-//TODO: unsure  
-import http from "http";
-import https from "https";
-
-
 import error from "./middleware/errors.mjs";
 import initDatabase from "./initDatabase.mjs"; //TODO: make temp
 
