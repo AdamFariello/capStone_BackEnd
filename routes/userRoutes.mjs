@@ -26,14 +26,7 @@ router.route("/")
       })
       .delete(async(req, res, next) => {
         if (req.body.username && req.body.email && req.body.password) {
-          let query = {
-            username: String(req.body.username),
-            email: String(req.body.email),
-            password: String(req.body.password)
-          }
-          let result = await userColl.deleteOne(query);
-
-          //let result = await userColl.deleteOne(req.body);
+          let result = await userColl.deleteMany(req.body);
 
           if (result["deletedCount"]) {
             res.json(result);
