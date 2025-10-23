@@ -20,8 +20,8 @@ router.route("/")
           await userColl.insertOne(req.body);
           res.json(req.body);
         } catch (e) {
-          console.error(e.message);
-          next(error(400, e))
+          console.error(e);
+          next(error(400, `[ERROR] -- ${e.message}`))
         }
       })
       .delete(async(req, res, next) => {
@@ -33,6 +33,7 @@ router.route("/")
             next(error(400, "Error occured, user wasn't deleted or doesn't exist"));
           }
         } catch (e) {
+          console.error(e);
           next(error(400, `[ERROR] -- ${e.message}`));
         }
       })
