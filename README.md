@@ -3,9 +3,6 @@
 https://github.com/AdamFariello/capStone_BackEnd
 
 ## Setup
-### Using site
-Click here: <mark>TODO: INSERT</mark> , to use this online
-
 ### Manually
 #### 1. Download git repo
 ```bash
