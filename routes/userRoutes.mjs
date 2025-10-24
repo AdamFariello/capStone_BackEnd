@@ -43,8 +43,12 @@ router.route("/")
           const formData     = req.body.data.formData;
           const updateObject = req.body.data.updateObject;
 
+          //console.log(req.body);
+          //console.log(formData);
+          //console.log(updateObject);
+
           let result = await userColl.updateOne(formData, updateObject)  
-          res.json(result);
+          //res.json(result);
         } catch (err) {
           console.log(err);
           next(error(400, `[ERROR] -- ${e.message}`));
