@@ -16,9 +16,9 @@ app.use(express.urlencoded({extended: true}));
 app.use(cors());
 initDatabase();
 
+
 dotenv.config();
 const PORT = process.env.PORT || 4008;
-
 
 // Pages used
 app.get("/", (req, res, next) => {

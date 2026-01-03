@@ -1,25 +1,22 @@
 import { MongoClient, MongoParseError } from "mongodb";
 import dotenv from 'dotenv';
 import mongoose from "mongoose"; //TODO: Remove this
-
-const databaseName = "telemaco";
 dotenv.config();
 
 // Load connectionString
-const connectionString = process.env.mongoURI || "";
+const databaseName = process.env.databaseName || "telemaco";
+const connectionString = process.env.mongoURI || "{NO STRING IN .env}";
 
-// TODO: MAKE THIS ONE TRY CATCH 
 // Create a new MongoClient
 let client;
 try {
     client = new MongoClient(connectionString);
 } catch (err) {
     console.error(`[ERROR] -- ${err.message}`);
-    console.log("[SOLVE?] -- CHECK IF .env EXISTS");
-    console.log("[SOLVE?] -- IF EXISTS, MAKE SURE THE VARIABLE IS, 'mongoURI'");
+    console.log("[SOLVE?] -- CHECK IF .env EXISTS and variable uses 'mongoURI'");
+    console.log("[SOLVE?] -- IF 'querySrv ENOTFOUND' error, login into site and check if cluster is online");
     process.exit(1);  
 }
-
 
 // Establist DB connection
 let conn;

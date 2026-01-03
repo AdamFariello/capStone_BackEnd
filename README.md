@@ -22,5 +22,5 @@ echo "{INSERT YOUR MONGO URI}" >> .env
 node server.js
 ```
 
-#### 3. Setting up the front end
+#### 4. Setting up the front end
 While this is running, switch to the [frontend repo](https://github.com/AdamFariello/capStone_BackEnd), and continue from there.
