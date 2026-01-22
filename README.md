@@ -1,3 +1,10 @@
+# NEWS:
+This repo will be forked, and all development will be happening there.
+You can find the new repo, here:
+https://github.com/AdamFariello/Telemaco_backend
+
+
+---
 # Perscholas BackEnd Capstone 
 ## Link to front end repo
 https://github.com/AdamFariello/capStone_FrontEnd
